@@ -1,43 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Meta information, including character set and viewport settings -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to custom stylesheet -->
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Link to Bootstrap CSS from a CDN (Content Delivery Network) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Title of the HTML page -->
     <title>Student Details Management System</title>
 </head>
+
 <body>
+    <!-- Container div for styling purposes -->
     <div class="container">
+        <!-- Heading for student details -->
         <h1>Students Details</h1>
+
+        <!-- Button to add a new student -->
         <a href="/students/new" class="btn btn-success">Add New Student</a>
+
+        <!-- Table to display a list of students -->
         <table class="table">
             <thead>
                 <tr>
+                    <!-- Table headers for student details -->
                     <th scope="col">Name</th>
                     <th scope="col">Roll No.</th>
-                    <th scope="col">Actions</th>
-                    <!--new col for actions-->
-                    <!-- add more columns as needed -->
+                    <th scope="col">Actions</th> <!-- New column for actions -->
+                    <!-- Add more columns as needed -->
                 </tr>
             </thead>
             <tbody>
-                <% students.forEach(student =>{%>
+                <!-- Embedded JavaScript (EJS) loop to iterate through the 'students' array and generate table rows -->
+                <% students.forEach(student=>{%>
                     <tr>
-                        <td><%= student.name %></td>
-                        <td><%= student.rollNo %></td>
+                        <!-- Table cells with values dynamically fetched from 'student' object --
                         <td>
+                            <%= student.name %>
+                        </td>
+                        <td>
+                            <%= student.rollNo %>
+                        </td>
+                        <td>
+                            <!-- View button with a link to view student details -->
                             <a href="/students/<%= student._id %>" class="btn btn-info btn-sm">View</a>
+
+                            <!-- Edit button with a link to edit student details -->
                             <a href="/students/<%= student._id %>/edit" class="btn btn-warning btn-sm">Edit</a>
+
+                            <!-- Form for deleting a student, displayed inline to create a button-like appearance -->
                             <form action="/students/<%= student._id %>" method="post" style="display: inline;">
                                 <input type="hidden" name="_method" value="DELETE">
+                                <!-- Delete button --
                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                             </form>
                         </td>
                     </tr>
-                <% }); %>
+                    <% }); %>
             </tbody>
         </table>
     </div>
 </body>
+
 </html>

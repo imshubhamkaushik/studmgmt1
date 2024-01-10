@@ -1,5 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <!-- Meta information, including character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to custom stylesheet -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Link to Bootstrap CSS from a CDN (Content Delivery Network) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Title of the HTML page -->
+    <title>Edit Student Details</title>
+</head>
+
+<body>
+    <!-- Container div for styling purposes -->
+    <div class="container">
+        <!-- Heading for editing student details -->
+        <h1>Edit Student Details</h1>
+
+        <!-- Form for updating student details with method set to POST and action dynamically generated using 'student._id' -->
+        <form action="/students/<%= student._id %>/" method="post">
+            <!-- Hidden input field to override the POST method and use PUT method for updating student details -->
+            <input type="hidden" name="_method" value="PUT">
+
+            <!-- Input field for the student's name with a default value fetched from the 'student' object -->
+            <div class="form-group">
+                <label for="name">Name: </label>
+                <input type="text" class="form-control" id="name" name="name" value="<%= student.name %>" required>
+            </div>
+
+            <!-- Input field for the student's roll number with a default value fetched from the 'student' object -->
+            <div class="form-group">
+                <label for="rollNo">Roll Number:</label>
+                <input type="text" class="form-control" id="rollNo" name="rollNo" value="<%= student.rollNo %>"
+                    required>
+            </div>
+
+            <!-- You can add more input fields as needed for additional student information -->
+
+            <!-- Submit button for the form -->
+            <button type="submit" class="btn btn-primary">Update Student</button>
+        </form>
+    </div>
+</body>
+
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,9 +76,8 @@
                 <label for="rollNo">Roll Number:</label>
                 <input type="text" class="form-control" id="rollNo" name="rollNo" value="<%= student.rollNo %>" required>
             </div>
-            <!-- add more input fields as needed -->
             <button type="submit" class="btn btn-primary">Update Student</button>
         </form>
     </div>
 </body>
-</html>
+</html> -->

@@ -1,5 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <!-- Meta information, including character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to custom stylesheet -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Link to Bootstrap CSS from a CDN (Content Delivery Network) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Title of the HTML page -->
+    <title>Edit Course Details</title>
+</head>
+
+<body>
+    <!-- Container div for styling purposes -->
+    <div class="container">
+        <!-- Heading for the form -->
+        <h1 class="mt-4 mb-4">Edit Course Details</h1>
+
+        <!-- Form for editing course details with method set to POST and action dynamically generated using embedded JavaScript (EJS) -->
+        <form action="/courses/<%= course._id %>" method="post">
+            <!-- Hidden input field to override the POST method and use PUT method for updating course details -->
+            <input type="hidden" name="_method" value="PUT">
+
+            <!-- Input field for the course name with a default value fetched from the 'course' object -->
+            <div class="form-group">
+                <label for="courseName">Course Name:</label>
+                <input type="text" class="form-control" id="courseName" name="courseName"
+                    value="<%= course.courseName %>" required>
+            </div>
+
+            <!-- Input field for the course grade with a default value fetched from the 'course' object -->
+            <div class="form-group">
+                <label for="grade">Grade:</label>
+                <input type="text" class="form-control" id="grade" name="grade" value="<%= course.grade %>" required>
+            </div>
+
+            <!-- Submit button for the form -->
+            <button type="submit" class="btn btn-primary">Update Course</button>
+        </form>
+    </div>
+</body>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,4 +77,4 @@
         </form>
     </div>
 </body>
-</html>
+</html> -->

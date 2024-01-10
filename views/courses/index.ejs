@@ -1,5 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <!-- Meta information, including character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to custom stylesheet -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Link to Bootstrap CSS from a CDN (Content Delivery Network) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Title of the HTML page -->
+    <title>Course List</title>
+</head>
+
+<body>
+    <!-- Container div for styling purposes -->
+    <div class="container">
+        <!-- Heading for the course list -->
+        <h1 class="mt-4 mb-4">Courses List</h1>
+
+        <!-- Unordered list to display the courses -->
+        <ul>
+            <!-- Embedded JavaScript (EJS) loop to iterate through the 'courses' array and generate list items -->
+            <% courses.forEach(course=> { %>
+                <!-- List item displaying course details using values from the 'course' object -->
+                <li><strong>
+                        <%= course.courseName %>:
+                    </strong>
+                    <%= course.grade %>
+                </li>
+                <% }); %>
+        </ul>
+    </div>
+</body>
+
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,4 +62,4 @@
         </ul>
     </div>
 </body>
-</html>
+</html> -->

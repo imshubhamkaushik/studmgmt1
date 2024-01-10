@@ -33,8 +33,6 @@ const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
-
-
 // Express Setup:
 
 // It requires and sets up the Express.js framework.
@@ -55,7 +53,6 @@ app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 // Server Listening:
 
 // The server is configured to listen on port 3000, or the port specified in the environment variable process.env.PORT.
-
 
 //Set up Express
 // const express = require("express");
